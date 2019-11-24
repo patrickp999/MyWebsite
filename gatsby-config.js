@@ -35,4 +35,4 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
   // TODO add google anlytics
-}
+};

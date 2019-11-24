@@ -1,10 +1,6 @@
-import React from "react"
+import React from 'react';
+import { Layout } from '@components';
 
-import Layout from "../components/layout";
+const NotFoundPage = () => <Layout></Layout>;
 
-const NotFoundPage = () => (
-  <Layout>
-  </Layout>
-)
-
-export default NotFoundPage
+export default NotFoundPage;
