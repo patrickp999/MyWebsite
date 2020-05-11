@@ -1,4 +1,5 @@
-const config = require('./src/config');
+/* eslint-disable prettier/prettier */
+const config = require("./src/config");
 
 module.exports = {
   siteMetadata: {
@@ -26,7 +27,23 @@ module.exports = {
         background_color: config.darkBlueBackgroundColor,
         theme_color: config.lightBlueBackgroundColor,
         display: `minimal-ui`,
-        // icon: `src/images/gatsby-icon.png`, // TODO Update icon
+        icon: "", // Todo add icon
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": "src/components",
+          "@config": "src/config",
+          "@content": "src/content",
+          // '@fonts': path.resolve(__dirname, 'src/fonts'),
+          "@images": "src/images",
+          "@pages": "src/pages",
+          "@styles": "src/styles",
+          // '@utils': path.resolve(__dirname, 'src/utils'),
+        },
+        extensions: [],
       },
     },
     // TODO add this
