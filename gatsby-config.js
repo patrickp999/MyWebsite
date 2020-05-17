@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-const config = require("./src/config");
+const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
@@ -19,6 +19,29 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer',
+            },
+          },
+          // TODO set this for any images in src/content
+          // {
+          //   resolve: 'gatsby-remark-images',
+          //   options: {
+          //     maxWidth: 1100,
+          //     quality: 90,
+          //     linkImagesToOriginal: true,
+          //   },
+          // },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `PatrickPuga`,
@@ -27,20 +50,20 @@ module.exports = {
         background_color: config.darkBlueBackgroundColor,
         theme_color: config.lightBlueBackgroundColor,
         display: `minimal-ui`,
-        icon: "", // Todo add icon
+        // icon: '', // Todo add icon
       },
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@components": "src/components",
-          "@config": "src/config",
-          "@content": "src/content",
+          '@components': 'src/components',
+          '@config': 'src/config',
+          '@content': 'src/content',
           // '@fonts': path.resolve(__dirname, 'src/fonts'),
-          "@images": "src/images",
-          "@pages": "src/pages",
-          "@styles": "src/styles",
+          '@images': 'src/images',
+          '@pages': 'src/pages',
+          '@styles': 'src/styles',
           // '@utils': path.resolve(__dirname, 'src/utils'),
         },
         extensions: [],
