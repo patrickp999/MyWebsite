@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import { Layout, Hero, About, Jobs, Contact } from '@components';
 import { Main } from '@styles';
 
-const MainContainer = styled(Main)``;
+const MainContainer = styled(Main)`
+  counter-reset: section;
+`;
 
 const IndexPage = ({ data }) => (
   <Layout>

@@ -1,4 +1,4 @@
-const Theme = {
+const theme = {
   colors: {},
 
   fonts: {},
@@ -6,4 +6,4 @@ const Theme = {
   fontSizes: {},
 };
 
-export default Theme;
+export default theme;

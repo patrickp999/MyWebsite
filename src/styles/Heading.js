@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Theme from './Theme';
+import theme from './theme';
 import media from './media';
-const { colors, fontSizes, fonts } = Theme;
+const { colors, fontSizes, fonts } = theme;
 
 const Heading = styled.h3`
   position: relative;
@@ -37,7 +37,7 @@ const Heading = styled.h3`
     margin-left: 20px;
     ${media.desktop`width: 200px`};
     ${media.tablet`width: 100%;`};
-    ${media.thone`margin-left: 10px;`};
+    ${media.phone`margin-left: 10px;`};
   }
 `;
 
