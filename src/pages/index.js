@@ -9,16 +9,18 @@ const MainContainer = styled(Main)`
   counter-reset: section;
 `;
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <MainContainer id='content'>
-      <Hero />
-      <About data={data.about.edges} />
-      <Jobs />
-      <Contact />
-    </MainContainer>
-  </Layout>
-);
+const IndexPage = ({ data }) => {
+  return (
+    <Layout>
+      <MainContainer id='content'>
+        <Hero />
+        <About data={data.about.edges} />
+        <Jobs />
+        <Contact />
+      </MainContainer>
+    </Layout>
+  );
+};
 
 IndexPage.propTypes = {
   data: object.isRequired,
