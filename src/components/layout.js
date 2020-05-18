@@ -1,29 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Head } from "@components";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { Head, Nav } from '@components';
+import { GlobalStyle, theme } from '@styles';
 
 const Layout = ({ children }) => {
   return (
-    <StaticQuery
-      query={graphql`
-        query LayoutQuery {
-          site {
-            siteMetadata {
-              title
-              siteUrl
-              description
-            }
-          }
-        }
-      `}
-      render={(data) => (
-        <div id='root'>
-          <Head metadata={data.site.siteMetadata} />
-          <div className='container'>{children}</div>
-        </div>
-      )}
-    />
+    <div id='root'>
+      <Head />
+      <GlobalStyle />
+      {/* Skip to content here */}
+      {/* Isloading here */}
+      <div className='container'>
+        <Nav />
+        {/* <Social /> */}
+        {/* <Email /> */}
+        {children}
+        {/* <Footer /> */}
+      </div>
+    </div>
   );
 };
 

@@ -10,6 +10,11 @@ const mixins = {
     ${media.tablet`padding: 0 50px;`};
     ${media.phablet`padding: 0 25px;`};
   `,
+  flexBetween: css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `,
 };
 
 export default mixins;

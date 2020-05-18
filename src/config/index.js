@@ -56,8 +56,4 @@ module.exports = {
   ],
 
   navHeight: 100,
-  lightBlueColor: '#2E9CCA',
-  BlueColor: '#29648A',
-  lightBlueBackgroundColor: '#464866',
-  darkBlueBackgroundColor: '#25274D',
 };

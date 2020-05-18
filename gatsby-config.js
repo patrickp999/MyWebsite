@@ -60,7 +60,7 @@ module.exports = {
           '@components': 'src/components',
           '@config': 'src/config',
           '@content': 'src/content',
-          // '@fonts': path.resolve(__dirname, 'src/fonts'),
+          '@fonts': 'src/fonts',
           '@images': 'src/images',
           '@pages': 'src/pages',
           '@styles': 'src/styles',
