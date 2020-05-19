@@ -64,7 +64,7 @@ module.exports = {
           '@images': 'src/images',
           '@pages': 'src/pages',
           '@styles': 'src/styles',
-          // '@utils': path.resolve(__dirname, 'src/utils'),
+          '@utils': 'src/utils',
         },
         extensions: [],
       },
