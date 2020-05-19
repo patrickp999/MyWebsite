@@ -3,9 +3,10 @@ import { graphql } from 'gatsby';
 import { object } from 'prop-types';
 import styled from 'styled-components';
 import { Layout, Hero, About, Jobs, Contact } from '@components';
-import { Main } from '@styles';
+import { mixins, Main } from '@styles';
 
 const MainContainer = styled(Main)`
+  ${mixins.sidePadding};
   counter-reset: section;
 `;
 

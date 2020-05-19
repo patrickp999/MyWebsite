@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { throttle } from '@utils';
 import styled from 'styled-components';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
@@ -6,18 +8,28 @@ import { mixins, theme, media } from '@styles';
 import { navLinks, navHeight } from '@config';
 
 const { colors, fontSizes, fonts } = theme;
-
 const NavContainer = styled.header`
   ${mixins.flexBetween};
   position: fixed;
   top: 0;
   padding: 0px 50px;
-  background-color: ${colors.navyBlue};
+  background-color: ${colors.navy};
+  transition: ${theme.transition};
   z-index: 11;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
   width: 100%;
+  height: ${props =>
+    props.scrollDirection === 'none' ? theme.navHeight : theme.navScrollHeight};
+  box-shadow: ${props =>
+    props.scrollDirection === 'up'
+      ? `0 10px 30px -10px ${colors.shadowNavy}`
+      : 'none'};
+  transform: translateY(
+    ${props =>
+      props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px'}
+  );
   ${media.desktop`padding: 0 40px;`};
   ${media.tablet`padding: 0 25px;`};
 `;
@@ -25,35 +37,30 @@ const Navbar = styled.nav`
   ${mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: ${colors.white};
+  color: ${colors.lightestSlate};
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
   z-index: 12;
 `;
-const NavLinks = styled.div`
-  display: flex;
-  align-items: center;
-  ${media.tablet`display: none;`};
+const Logo = styled.div`
+  ${mixins.flexCenter};
 `;
-const NavList = styled.ol`
-  div {
-    ${mixins.flexBetween};
+const LogoLink = styled.a`
+  display: block;
+  color: ${colors.green};
+  width: 42px;
+  height: 42px;
+  &:hover,
+  &:focus {
+    svg {
+      fill: ${colors.transGreen};
+    }
   }
-`;
-const NavListItem = styled.li`
-  margin: 0 10px;
-  position: relative;
-  font-size: ${fontSizes.smallish};
-  counter-increment: item 1;
-  &:before {
-    content: '0' counter(item) '.';
-    text-align: right;
-    color: ${colors.red};
-    font-size: ${fontSizes.xsmall};
+  svg {
+    fill: none;
+    transition: ${theme.transition};
+    user-select: none;
   }
-`;
-const NavLink = styled(AnchorLink)`
-  padding: 12px 10px;
 `;
 const Hamburger = styled.div`
   ${mixins.flexCenter};
@@ -124,19 +131,66 @@ const HamburgerInner = styled.div`
       props.menuOpen ? theme.hamAfterActive : theme.hamAfter};
   }
 `;
+const NavLinks = styled.div`
+  display: flex;
+  align-items: center;
+  ${media.tablet`display: none;`};
+`;
+const NavList = styled.ol`
+  div {
+    ${mixins.flexBetween};
+  }
+`;
+const NavListItem = styled.li`
+  margin: 0 10px;
+  position: relative;
+  font-size: ${fontSizes.smallish};
+  counter-increment: item 1;
+  &:before {
+    content: '0' counter(item) '.';
+    text-align: right;
+    color: ${colors.green};
+    font-size: ${fontSizes.xsmall};
+  }
+`;
+const NavLink = styled(AnchorLink)`
+  padding: 12px 10px;
+`;
+const ResumeLink = styled.a`
+  ${mixins.smallButton};
+  margin-left: 10px;
+  font-size: ${fontSizes.smallish};
+`;
+
+function useEventListener(eventName, handler, element = window) {
+  const savedHandler = useRef();
+
+  useEffect(() => {
+    savedHandler.current = handler;
+  }, [handler]);
+
+  useEffect(() => {
+    const isSupported = element && element.addEventListener;
+    if (!isSupported) return;
+    const eventListener = event => savedHandler.current(event);
+
+    element.addEventListener(eventName, eventListener);
+
+    return () => {
+      element.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element]);
+}
 
 const Nav = () => {
   const [isMounted, setMounted] = useState(true);
-
   const [menuOpen, toggleMenu] = useState(false);
 
   const handleKeydown = e => {
-    if (!menuOpen) {
-      return;
-    }
+    if (!menuOpen) return;
 
     if (e.which === 27 || e.key === 'Escape') {
-      toggleMenu(!menuOpen);
+      toggleMenu(false);
     }
   };
 
@@ -146,37 +200,44 @@ const Nav = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('mounted');
-    // window.addEventListener('resize', () => handleResize());
-    // window.addEventListener('keydown', e => handleResize());
-    return () => {
-      // setMounted(false);
-      console.log('unMounted');
-      // window.removeEventListener('resize', () => console.log('undone'));
-      // window.removeEventListener('keydown', e => handleKeydown(e));
-    };
-  });
+  //TODO add smooth scroll
+  const handleScroll = () => {
+    return null;
+  };
+
+  useEventListener('keydown', handleKeydown);
+  useEventListener('resize', handleResize);
 
   return (
     <NavContainer>
-      {isMounted && (
-        <Hamburger onClick={() => toggleMenu(!menuOpen)}>
-          <HamburgerBox>
-            <HamburgerInner menuOpen={menuOpen} />
-          </HamburgerBox>
-        </Hamburger>
-      )}
       <Navbar>
+        <TransitionGroup>
+          {isMounted && (
+            <CSSTransition classNames='fade' timeout={3000}>
+              <Hamburger onClick={() => toggleMenu(!menuOpen)}>
+                <HamburgerBox>
+                  <HamburgerInner menuOpen={menuOpen} />
+                </HamburgerBox>
+              </Hamburger>
+            </CSSTransition>
+          )}
+        </TransitionGroup>
         <NavLinks>
           <NavList>
-            {isMounted &&
-              navLinks &&
-              navLinks.map(({ url, name }, index) => (
-                <NavListItem key={index}>
-                  <NavLink href={url}>{name}</NavLink>
-                </NavListItem>
-              ))}
+            <TransitionGroup>
+              {isMounted &&
+                navLinks &&
+                navLinks.map(({ url, name }, i) => (
+                  <CSSTransition key={i} classNames='fadedown' timeout={3000}>
+                    <NavListItem
+                      key={i}
+                      style={{ transitionDelay: `${i * 100}ms` }}
+                    >
+                      <NavLink href={url}>{name}</NavLink>
+                    </NavListItem>
+                  </CSSTransition>
+                ))}
+            </TransitionGroup>
           </NavList>
         </NavLinks>
       </Navbar>
