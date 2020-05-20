@@ -182,9 +182,39 @@ function useEventListener(eventName, handler, element = window) {
   }, [eventName, element]);
 }
 
+const DELTA = 5;
+
 const Nav = () => {
-  const [isMounted, setMounted] = useState(true);
+  const [isMounted, setMounted] = useState(false);
   const [menuOpen, toggleMenu] = useState(false);
+  // const [scrollDirection, setScrollDirection] = useState('none');
+  // const [lastScrollTop, setLastScrollTop] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => setMounted(true), 100);
+  }, []);
+
+  // const handleScroll = () => {
+  //   const fromTop = window.scrollY;
+
+  //   // Make sure they scroll more than DELTA
+  //   if (!isMounted || Math.abs(lastScrollTop - fromTop) <= DELTA || menuOpen) {
+  //     return;
+  //   }
+
+  //   if (fromTop < DELTA) {
+  //     setScrollDirection('none');
+  //   } else if (fromTop > lastScrollTop && fromTop > navHeight) {
+  //     if (scrollDirection !== 'down') {
+  //       setScrollDirection('down');
+  //     }
+  //   } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
+  //     if (scrollDirection !== 'up') {
+  //       setScrollDirection('up');
+  //     }
+  //   }
+  //   setScrollDirection(fromTop);
+  // };
 
   const handleKeydown = e => {
     if (!menuOpen) return;
@@ -200,11 +230,7 @@ const Nav = () => {
     }
   };
 
-  //TODO add smooth scroll
-  const handleScroll = () => {
-    return null;
-  };
-
+  // useEventListener('scroll', handleScroll);
   useEventListener('keydown', handleKeydown);
   useEventListener('resize', handleResize);
 
