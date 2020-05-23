@@ -31,6 +31,19 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   {
+    hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            name
+            subtitle
+            contactText
+          }
+          html
+        }
+      }
+    }
     about: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/about/" } }
     ) {

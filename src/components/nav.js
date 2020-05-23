@@ -240,6 +240,17 @@ const Nav = () => {
         <TransitionGroup>
           {isMounted && (
             <CSSTransition classNames='fade' timeout={3000}>
+              <Logo>
+                <LogoLink href='/' aria-label='home'>
+                  {/* <IconLogo />  */}
+                </LogoLink>
+              </Logo>
+            </CSSTransition>
+          )}
+        </TransitionGroup>
+        <TransitionGroup>
+          {isMounted && (
+            <CSSTransition classNames='fade' timeout={3000}>
               <Hamburger onClick={() => toggleMenu(!menuOpen)}>
                 <HamburgerBox>
                   <HamburgerInner menuOpen={menuOpen} />
