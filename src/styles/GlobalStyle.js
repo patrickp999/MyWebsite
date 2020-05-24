@@ -267,7 +267,6 @@ const GlobalStyle = createGlobalStyle`
   .fadeup-enter {
     opacity: 0.01;
     transform: translateY(20px);
-    transition: opacity 300ms ${theme.easing}, transform 300ms ${theme.easing};
   }
 
   .fadeup-enter-active {
@@ -279,7 +278,6 @@ const GlobalStyle = createGlobalStyle`
   .fadedown-enter {
     opacity: 0.01;
     transform: translateY(-20px);
-    transition: opacity 300ms ${theme.easing}, transform 300ms ${theme.easing};
   }
 
   .fadedown-enter-active {
@@ -288,16 +286,23 @@ const GlobalStyle = createGlobalStyle`
     transition: opacity 300ms ${theme.easing}, transform 300ms ${theme.easing};
   }
 
+  .fadelink-enter {
+    opacity: 0.01;
+  }
+
+  .fadelink-enter-active {
+    opacity: 1;
+    transition: opacity 2000ms ${theme.easing};
+  }
+
   .fade-enter {
     opacity: 0.01;
-    transition: opacity 1000ms ${theme.easing};
   }
 
   .fade-enter-active {
     opacity: 1;
     transition: opacity 1000ms ${theme.easing};
   }
-
 `;
 
 export default GlobalStyle;

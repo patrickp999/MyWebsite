@@ -69,7 +69,6 @@ const Hamburger = styled.div`
   padding: 15px;
   cursor: pointer;
   transition-timing-function: linear;
-  transition-duration: 0.15s;
   transition-property: opacity, filter;
   text-transform: none;
   color: inherit;
@@ -239,7 +238,7 @@ const Nav = () => {
       <Navbar>
         <TransitionGroup>
           {isMounted && (
-            <CSSTransition classNames='fade' timeout={3000}>
+            <CSSTransition classNames='fadelink' timeout={2000}>
               <Logo>
                 <LogoLink href='/' aria-label='home'>
                   {/* <IconLogo />  */}
@@ -250,7 +249,7 @@ const Nav = () => {
         </TransitionGroup>
         <TransitionGroup>
           {isMounted && (
-            <CSSTransition classNames='fade' timeout={3000}>
+            <CSSTransition classNames='fade' timeout={300}>
               <Hamburger onClick={() => toggleMenu(!menuOpen)}>
                 <HamburgerBox>
                   <HamburgerInner menuOpen={menuOpen} />
@@ -265,7 +264,7 @@ const Nav = () => {
               {isMounted &&
                 navLinks &&
                 navLinks.map(({ url, name }, i) => (
-                  <CSSTransition key={i} classNames='fadedown' timeout={3000}>
+                  <CSSTransition key={i} classNames='fadelink' timeout={2000}>
                     <NavListItem
                       key={i}
                       style={{ transitionDelay: `${i * 100}ms` }}
