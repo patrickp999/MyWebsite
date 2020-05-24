@@ -1,5 +1,5 @@
 import React from 'react';
-import { object } from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Section, Heading } from '../styles';
@@ -30,7 +30,7 @@ const About = ({ data }) => {
 };
 
 About.prototype = {
-  data: object.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default About;

@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <MainContainer id='content'>
-        <Hero />
+        <Hero data={data.hero.edges} />
         <About data={data.about.edges} />
         <Jobs />
         <Contact />
