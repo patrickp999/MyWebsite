@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Helmet from 'react-helmet';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { throttle } from '@utils';
 import styled from 'styled-components';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-
+import { Menu } from '@components';
 import { mixins, theme, media } from '@styles';
 import { navLinks, navHeight } from '@config';
 
@@ -215,17 +216,19 @@ const Nav = () => {
   //   setScrollDirection(fromTop);
   // };
 
-  const handleKeydown = e => {
-    if (!menuOpen) return;
-
-    if (e.which === 27 || e.key === 'Escape') {
-      toggleMenu(false);
-    }
-  };
-
   const handleResize = () => {
     if (window.innerWidth > 768 && menuOpen) {
       toggleMenu(!menuOpen);
+    }
+  };
+
+  const handleKeydown = e => {
+    if (!menuOpen) {
+      return;
+    }
+
+    if (e.which === 27 || e.key === 'Escape') {
+      toggleMenu(false);
     }
   };
 
@@ -235,6 +238,9 @@ const Nav = () => {
 
   return (
     <NavContainer>
+      <Helmet>
+        <body className={menuOpen ? 'blur' : ''} />
+      </Helmet>
       <Navbar>
         <TransitionGroup>
           {isMounted && (
@@ -277,6 +283,7 @@ const Nav = () => {
           </NavList>
         </NavLinks>
       </Navbar>
+      <Menu menuOpen={menuOpen} toggleMenu={toggleMenu} />
     </NavContainer>
   );
 };
