@@ -15,9 +15,9 @@ const IndexPage = ({ data }) => {
     <Layout>
       <MainContainer id='content'>
         <Hero data={data.hero.edges} />
-        <About data={data.about.edges} />
+        {/* <About data={data.about.edges} />
         <Jobs />
-        <Contact />
+        <Contact /> */}
       </MainContainer>
     </Layout>
   );
@@ -35,10 +35,8 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            title
             name
             subtitle
-            contactText
           }
           html
         }
