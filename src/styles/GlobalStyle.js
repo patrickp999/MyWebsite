@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import media from './media';
 import * as fontFamilies from './fonts';
-const { colors, fontSizes, fonts } = theme;
+const { colors, fontSizes, fonts, myColors } = theme;
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -150,7 +150,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${colors.navy};
+    background-color: ${myColors.darkGray};
     color: ${colors.slate};
     line-height: 1.3;
     font-family: ${fonts.Calibre};
@@ -292,7 +292,7 @@ const GlobalStyle = createGlobalStyle`
 
   .fadelink-enter-active {
     opacity: 1;
-    transition: opacity 2000ms ${theme.easing};
+    transition: opacity 1s ${theme.easing};
   }
 
   .fade-enter {

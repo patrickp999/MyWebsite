@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Head, Nav } from '@components';
 import { GlobalStyle, theme } from '@styles';
 

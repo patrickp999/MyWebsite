@@ -30,6 +30,13 @@ const theme = {
     shadowNavy: 'rgba(2, 12, 27, 0.7)',
   },
 
+  myColors: {
+    darkGray: '#171717',
+    orangeJulius: '#F84330',
+    skyScraper: '#878787',
+    rubyRed: '#A33327',
+  },
+
   fonts: {
     Calibre:
       'Calibre, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',

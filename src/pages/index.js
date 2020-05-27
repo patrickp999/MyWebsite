@@ -35,10 +35,8 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            title
             name
             subtitle
-            contactText
           }
           html
         }
