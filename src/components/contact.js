@@ -27,13 +27,14 @@ const Title = styled.h4`
 `;
 const FormGroup = styled.div`
   position: relative;
-  padding: 15px 0 0;
+  padding: 15px 0 0 0;
   margin: 0 auto
   margin-top: 10px;
   width: 80%;
 `;
 const FormGroupBox = styled(FormGroup)`
   margin-top: 30px;
+  padding: 20px 0 0 0;
 `;
 const Label = styled.label`
   position: absolute;
@@ -84,6 +85,27 @@ const Input = styled.input`
 const TextBox = styled(Input)`
   height: 200px;
   border: 2px solid ${myColors.rubyRed};
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 30px;
+  }
+
+  &:focus {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: ${myColors.sage};
+      font-weight: 700;
+    }
+    font-weight: 700;
+    border-width: 3px;
+    border-color: ${myColors.sage};
+  }
 `;
 
 const Contact = ({ data }) => {
