@@ -9,13 +9,11 @@ const HeroContainer = styled(Section)`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 80vh;
+  ${media.tablet`padding-top: 150px;`};
   div {
     width: 100%;
   }
-`;
-const spacer = styled.h1`
-  margin: 0 0 20px 3px;
 `;
 const Name = styled.h2`
   font-size: 80px;
@@ -71,7 +69,6 @@ const Hero = ({ data }) => {
   }, []);
   const { frontmatter, html } = data[0].node;
 
-  const one = () => <spacer />;
   const two = () => (
     <Name style={{ transitionDelay: '100ms' }}>{frontmatter.name}</Name>
   );
@@ -88,7 +85,7 @@ const Hero = ({ data }) => {
     />
   );
 
-  const items = [one, two, three, four, five];
+  const items = [two, three, four, five];
 
   return (
     <HeroContainer>

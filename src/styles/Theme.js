@@ -32,9 +32,12 @@ const theme = {
 
   myColors: {
     darkGray: '#171717',
+    lightGray: '#505050',
     orangeJulius: '#F84330',
     skyScraper: '#878787',
     rubyRed: '#A33327',
+    sage: '#5CDB95',
+    beaver: '#907163',
   },
 
   fonts: {
