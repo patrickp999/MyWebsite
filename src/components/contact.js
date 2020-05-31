@@ -76,51 +76,14 @@ const Input = styled.input`
       color: ${myColors.sage};
       font-weight: 700;
     }
-    padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
     border-color: ${myColors.sage};
   }
 `;
-const TextBox = styled.input`
-  font-family: inherit;
-  width: 100%;
+const TextBox = styled(Input)`
   height: 200px;
   border: 2px solid ${myColors.rubyRed};
-  outline: 0;
-  font-size: 1.3rem;
-  color: white;
-  padding: 7px;
-  background: transparent;
-  transition: border-color 0.2s;
-
-  &::placeholder {
-    color: transparent;
-  }
-
-  &:placeholder-shown ~ .form__label {
-    font-size: 1.3rem;
-    cursor: text;
-    top: 20px;
-    padding-left: 7px;
-  }
-
-  &:focus {
-    ~ .form__label {
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 1rem;
-      color: ${myColors.sage};
-      font-weight: 700;
-      padding-left: 7px;
-    }
-    font-weight: 700;
-    border-width: 3px;
-    border-color: ${myColors.sage};
-    padding-left: 7px;
-  }
 `;
 
 const Contact = ({ data }) => {
@@ -175,7 +138,7 @@ const Contact = ({ data }) => {
             </Label>
           </FormGroupBox>
           <input type='submit' value='Submit' />
-          <input type='reset' value='Cancel' />
+          <input type='reset' value='Reset' />
         </form>
       </ContactBox>
     </ContactContainer>
