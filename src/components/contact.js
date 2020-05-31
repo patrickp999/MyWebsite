@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { theme, mixins, media, Section, Heading } from '@styles';
-const { colors, myColors, fontSizes, fonts } = theme;
+import { theme, media, Section, mixins } from '@styles';
+const { myColors } = theme;
 
 const ContactContainer = styled(Section)`
   text-align: center;
@@ -31,6 +31,7 @@ const FormGroup = styled.div`
   margin: 0 auto
   margin-top: 10px;
   width: 80%;
+  ${media.phablet`width: 90%;`};
 `;
 const FormGroupBox = styled(FormGroup)`
   margin-top: 30px;
@@ -82,9 +83,29 @@ const Input = styled.input`
     border-color: ${myColors.sage};
   }
 `;
-const TextBox = styled(Input)`
+const TextBox = styled.textarea`
   height: 200px;
+  font-family: inherit;
+  width: 100%;
+  resize: none;
   border: 2px solid ${myColors.rubyRed};
+  border-radius: ${theme.borderRadius};
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
 
   &:placeholder-shown ~ .form__label {
     font-size: 1.3rem;
@@ -107,61 +128,80 @@ const TextBox = styled(Input)`
     border-color: ${myColors.sage};
   }
 `;
+const FormButton = styled.button`
+  ${mixins.bigButton};
+  padding: 1.25rem 1.75rem;
+  margin: 0 auto
+  width: 27%;
+  ${media.tablet`width: 40%;`};
+`;
+const Button = styled.button`
+  ${mixins.bigButton};
+  padding: 0.75rem 1rem;
+  margin: 0.5rem;
+`;
 
 const Contact = ({ data }) => {
   const { frontmatter, html } = data[0].node;
   const { title } = frontmatter;
 
+  const [isFormOpen, setOpenForm] = useState(false);
+
   return (
     <ContactContainer id='contact'>
       <Title>{title}</Title>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
       <ContactBox>
-        <form method='post' action=''>
-          <FormGroup>
-            <Input
-              type='input'
-              className='form__field'
-              placeholder='Name'
-              name='name'
-              id='name'
-              title=''
-              required
-            />
-            <Label htmlFor='name' className='form__label'>
-              Name
-            </Label>
-          </FormGroup>
-          <FormGroup>
-            <Input
-              type='input'
-              className='form__field'
-              placeholder='Email'
-              name='email'
-              id='email'
-              title=''
-              required
-            />
-            <Label htmlFor='email' className='form__label'>
-              Email
-            </Label>
-          </FormGroup>
-          <FormGroupBox>
-            <TextBox
-              type='input'
-              className='form__field'
-              placeholder='Message'
-              name='message'
-              id='message'
-              title=''
-              required
-            />
-            <Label htmlFor='message' className='form__label'>
-              Message
-            </Label>
-          </FormGroupBox>
-          <input type='submit' value='Submit' />
-          <input type='reset' value='Reset' />
-        </form>
+        {isFormOpen ? (
+          <form method='post' action=''>
+            <FormGroup>
+              <Input
+                type='input'
+                className='form__field'
+                placeholder='Name'
+                name='name'
+                id='name'
+                title=''
+                required
+              />
+              <Label htmlFor='name' className='form__label'>
+                Name
+              </Label>
+            </FormGroup>
+            <FormGroup>
+              <Input
+                type='input'
+                className='form__field'
+                placeholder='Email'
+                name='email'
+                id='email'
+                title=''
+                required
+              />
+              <Label htmlFor='email' className='form__label'>
+                Email
+              </Label>
+            </FormGroup>
+            <FormGroupBox>
+              <TextBox
+                type='input'
+                className='form__field'
+                placeholder='Message'
+                name='message'
+                id='message'
+                title=''
+                required
+              />
+              <Label htmlFor='message' className='form__label'>
+                Message
+              </Label>
+            </FormGroupBox>
+            <Button type='submit'>Submit</Button>
+            <Button type='reset'>Reset</Button>
+          </form>
+        ) : (
+          <FormButton onClick={() => setOpenForm(true)}>Say Hello</FormButton>
+        )}
       </ContactBox>
     </ContactContainer>
   );

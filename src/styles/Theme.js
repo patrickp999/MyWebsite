@@ -35,8 +35,11 @@ const theme = {
     lightGray: '#505050',
     orangeJulius: '#F84330',
     skyScraper: '#878787',
+    transSkyScraper: 'rgba(135, 135, 135, 0.07)',
     rubyRed: '#A33327',
+    transparentRuby: 'rgba(163, 51, 39, 0.07)',
     sage: '#5CDB95',
+    transparentSage: 'rgba(92, 219, 149, 0.07)',
     beaver: '#907163',
   },
 

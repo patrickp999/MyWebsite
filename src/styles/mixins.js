@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import theme from './theme';
 import media from './media';
-const { colors, fontSizes, fonts } = theme;
+const { colors, myColors, fontSizes, fonts } = theme;
 
 const mixins = {
   flexCenter: css`
@@ -62,6 +62,56 @@ const mixins = {
       background-color: ${colors.green};
       transition: ${theme.transition};
       opacity: 0.5;
+    }
+  `,
+
+  smallButton: css`
+    color: ${myColors.skyScraper};
+    background-color: transparent;
+    border: 1px solid ${myColors.skyScraper};
+    border-radius: ${theme.borderRadius};
+    padding: 0.75rem 1rem;
+    font-size: ${fontSizes.smallish};
+    font-family: ${fonts.SFMono};
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: ${theme.transition};
+    outline: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: ${myColors.sage}
+      border-color: ${myColors.sage}
+      background-color: ${myColors.transparentSage};
+    }
+    &:after {
+      display: none !important;
+    }
+  `,
+
+  bigButton: css`
+    color: ${myColors.skyScraper};
+    background-color: transparent;
+    border: 1px solid ${myColors.skyScraper};
+    border-radius: ${theme.borderRadius};
+    padding: 1.25rem 1.75rem;
+    font-size: ${fontSizes.small};
+    font-family: ${fonts.SFMono};
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: ${theme.transition};
+    outline: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: ${myColors.sage}
+      border-color: ${myColors.sage}
+      background-color: ${myColors.transparentSage};
+    }
+    &:after {
+      display: none !important;
     }
   `,
 };
