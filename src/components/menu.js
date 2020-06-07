@@ -4,7 +4,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { navLinks } from '@config';
 import styled from 'styled-components';
 import { theme, mixins, media } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+const { colors, myColors, fontSizes, fonts } = theme;
 
 const MenuContainer = styled.div`
   position: fixed;
@@ -24,7 +24,7 @@ const MenuContainer = styled.div`
 const Sidebar = styled.div`
   ${mixins.flexCenter};
   flex-direction: column;
-  background-color: ${colors.lightNavy};
+  background-color: ${myColors.naughtyGray};
   padding: 50px;
   width: 50vw;
   height: 100%;
@@ -32,7 +32,7 @@ const Sidebar = styled.div`
   right: 0;
   margin-left: auto;
   font-family: ${fonts.SFMono};
-  box-shadow: -10px 0px 30px -15px ${colors.shadowNavy};
+  box-shadow: -10px 0px 30px -15px ${myColors.naughtyGray};
   ${media.phone`padding: 25px;`};
   ${media.phablet`width: 75vw;`};
   ${media.tiny`padding: 10px;`};
@@ -56,13 +56,6 @@ const NavListItem = styled.li`
     font-size: ${fontSizes.medium};
   `};
   ${media.tiny`font-size: ${fontSizes.smallish};`};
-  &:before {
-    display: block;
-    content: '0' counter(item) '.';
-    color: ${colors.green};
-    font-size: ${fontSizes.small};
-    margin-bottom: 5px;
-  }
 `;
 const NavLink = styled(AnchorLink)`
   ${mixins.link};

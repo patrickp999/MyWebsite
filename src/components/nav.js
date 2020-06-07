@@ -38,7 +38,7 @@ const Navbar = styled.nav`
   ${mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: ${colors.lightestSlate};
+  color: ${myColors.skyScraper};
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
   z-index: 12;
@@ -85,7 +85,7 @@ const HamburgerBox = styled.div`
   height: 24px;
 `;
 const HamburgerInner = styled.div`
-  background-color: ${colors.green};
+  background-color: ${myColors.orangeJulius};
   position: absolute;
   width: ${theme.hamburgerWidth}px;
   height: 2px;
@@ -105,7 +105,7 @@ const HamburgerInner = styled.div`
   &:after {
     content: '';
     display: block;
-    background-color: ${colors.green};
+    background-color: ${myColors.orangeJulius};
     position: absolute;
     left: auto;
     right: 0;

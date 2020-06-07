@@ -32,7 +32,9 @@ const theme = {
 
   myColors: {
     darkGray: '#171717',
+    naughtyGray: '#505050',
     lightGray: '#505050',
+    slate: '#8892b0',
     orangeJulius: '#F84330',
     skyScraper: '#878787',
     transSkyScraper: 'rgba(135, 135, 135, 0.07)',
