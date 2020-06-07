@@ -7,14 +7,14 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Menu } from '@components';
 import { mixins, theme, media } from '@styles';
 import { navLinks, navHeight } from '@config';
+const { colors, myColors, fontSizes, fonts } = theme;
 
-const { colors, fontSizes, fonts } = theme;
 const NavContainer = styled.header`
   ${mixins.flexBetween};
   position: fixed;
   top: 0;
   padding: 0px 50px;
-  background-color: ${colors.navy};
+  background-color: ${myColors.darkGray};
   transition: ${theme.transition};
   z-index: 11;
   filter: none !important;
@@ -146,12 +146,6 @@ const NavListItem = styled.li`
   position: relative;
   font-size: ${fontSizes.smallish};
   counter-increment: item 1;
-  &:before {
-    content: '0' counter(item) '.';
-    text-align: right;
-    color: ${colors.green};
-    font-size: ${fontSizes.xsmall};
-  }
 `;
 const NavLink = styled(AnchorLink)`
   padding: 12px 10px;
