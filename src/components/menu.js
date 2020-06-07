@@ -24,7 +24,7 @@ const MenuContainer = styled.div`
 const Sidebar = styled.div`
   ${mixins.flexCenter};
   flex-direction: column;
-  background-color: ${myColors.naughtyGray};
+  background-color: ${myColors.lightGray};
   padding: 50px;
   width: 50vw;
   height: 100%;
@@ -32,7 +32,7 @@ const Sidebar = styled.div`
   right: 0;
   margin-left: auto;
   font-family: ${fonts.SFMono};
-  box-shadow: -10px 0px 30px -15px ${myColors.naughtyGray};
+  box-shadow: -10px 0px 30px -15px ${myColors.lightGray};
   ${media.phone`padding: 25px;`};
   ${media.phablet`width: 75vw;`};
   ${media.tiny`padding: 10px;`};
