@@ -88,7 +88,7 @@ const Hero = ({ data }) => {
   const items = [two, three, four, five];
 
   return (
-    <HeroContainer>
+    <HeroContainer id='hero'>
       <TransitionGroup>
         {isMounted &&
           items.map((item, i) => (

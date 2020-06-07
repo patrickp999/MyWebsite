@@ -181,34 +181,34 @@ const DELTA = 5;
 const Nav = () => {
   const [isMounted, setMounted] = useState(false);
   const [menuOpen, toggleMenu] = useState(false);
-  // const [scrollDirection, setScrollDirection] = useState('none');
-  // const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState('none');
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   useEffect(() => {
     setTimeout(() => setMounted(true), 100);
   }, []);
 
-  // const handleScroll = () => {
-  //   const fromTop = window.scrollY;
+  const handleScroll = () => {
+    const fromTop = window.scrollY;
 
-  //   // Make sure they scroll more than DELTA
-  //   if (!isMounted || Math.abs(lastScrollTop - fromTop) <= DELTA || menuOpen) {
-  //     return;
-  //   }
+    // Make sure they scroll more than DELTA
+    if (!isMounted || Math.abs(lastScrollTop - fromTop) <= DELTA || menuOpen) {
+      return;
+    }
 
-  //   if (fromTop < DELTA) {
-  //     setScrollDirection('none');
-  //   } else if (fromTop > lastScrollTop && fromTop > navHeight) {
-  //     if (scrollDirection !== 'down') {
-  //       setScrollDirection('down');
-  //     }
-  //   } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
-  //     if (scrollDirection !== 'up') {
-  //       setScrollDirection('up');
-  //     }
-  //   }
-  //   setScrollDirection(fromTop);
-  // };
+    if (fromTop < DELTA) {
+      setScrollDirection('none');
+    } else if (fromTop > lastScrollTop && fromTop > navHeight) {
+      if (scrollDirection !== 'down') {
+        setScrollDirection('down');
+      }
+    } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
+      if (scrollDirection !== 'up') {
+        setScrollDirection('up');
+      }
+    }
+    setLastScrollTop(fromTop);
+  };
 
   const handleResize = () => {
     if (window.innerWidth > 768 && menuOpen) {
@@ -226,7 +226,7 @@ const Nav = () => {
     }
   };
 
-  // useEventListener('scroll', handleScroll);
+  useEventListener('scroll', handleScroll);
   useEventListener('keydown', handleKeydown);
   useEventListener('resize', handleResize);
 

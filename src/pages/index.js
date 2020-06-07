@@ -15,8 +15,8 @@ const IndexPage = ({ data }) => {
     <Layout>
       <MainContainer id='content'>
         <Hero data={data.hero.edges} />
-        {/* <About data={data.about.edges} />
-        <Jobs /> */}
+        {/* <About data={data.about.edges} /> */}
+        {/* <Jobs /> */}
         <Contact data={data.contact.edges} />
       </MainContainer>
     </Layout>
@@ -69,4 +69,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
