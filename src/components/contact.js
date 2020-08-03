@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { theme, media, Section, mixins } from '@styles';
+import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { theme, media, Section, mixins } from "@styles";
+import sr from "@utils/sr";
+import { srConfig } from "@config";
 const { myColors } = theme;
 
 const ContactContainer = styled(Section)`
@@ -144,11 +146,13 @@ const Button = styled.button`
 const Contact = ({ data }) => {
   const { frontmatter, html } = data[0].node;
   const { title } = frontmatter;
-
+  const revealContainer = useRef(null);
   const [isFormOpen, setOpenForm] = useState(false);
 
+  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+
   return (
-    <ContactContainer id='contact'>
+    <ContactContainer id='contact' ref={revealContainer}>
       <Title>{title}</Title>
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <ContactBox>

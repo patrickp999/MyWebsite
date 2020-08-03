@@ -1,8 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-import { Section, Heading } from '../styles';
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { srConfig } from "@config";
+import sr from "@utils/sr";
+import { Section, Heading } from "../styles";
 
 const AboutContainer = styled(Section)`
   position: relative;
@@ -21,9 +22,12 @@ const AboutContainer = styled(Section)`
 const About = ({ data }) => {
   const { frontmatter, html } = data[0].node;
   const { title, avetar, skills } = frontmatter;
+  const revealContainer = useRef(null);
+
+  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   return (
-    <AboutContainer id='about'>
+    <AboutContainer id='about' ref={revealContainer}>
       <Heading>{title}</Heading>
     </AboutContainer>
   );

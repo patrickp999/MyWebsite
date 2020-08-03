@@ -1,10 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
 
-const Jobs = ({ data }) => {
-  // Container id='jobs'
+const jobs = () => {
   return <div>Jobs</div>;
 };
 
-export default Jobs;
+export default jobs;

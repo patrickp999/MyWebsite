@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled from 'styled-components';
-import { theme, mixins, media, Section } from '@styles';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import styled from "styled-components";
+import { theme, mixins, media, Section } from "@styles";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const HeroContainer = styled(Section)`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
-  min-height: 80vh;
+  min-height: 100vh;
   ${media.tablet`padding-top: 150px;`};
   div {
     width: 100%;
@@ -70,17 +70,17 @@ const Hero = ({ data }) => {
   const { frontmatter, html } = data[0].node;
 
   const two = () => (
-    <Name style={{ transitionDelay: '100ms' }}>{frontmatter.name}</Name>
+    <Name style={{ transitionDelay: "100ms" }}>{frontmatter.name}</Name>
   );
-  const three = () => <Horizontel style={{ transitionDelay: '150ms' }} />;
+  const three = () => <Horizontel style={{ transitionDelay: "150ms" }} />;
   const four = () => (
-    <Subtitle style={{ transitionDelay: '200ms' }}>
+    <Subtitle style={{ transitionDelay: "200ms" }}>
       {frontmatter.subtitle}
     </Subtitle>
   );
   const five = () => (
     <Blurb
-      style={{ transitionDelay: '300ms' }}
+      style={{ transitionDelay: "300ms" }}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
