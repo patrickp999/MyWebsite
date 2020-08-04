@@ -1,10 +1,11 @@
-import styled from 'styled-components';
-import theme from './theme';
-import media from './media';
-const { colors, fontSizes, fonts } = theme;
+import styled from "styled-components";
+import theme from "./theme";
+import media from "./media";
+const { colors, myColors, fontSizes, fonts } = theme;
 
 const Heading = styled.h3`
   position: relative;
+  color: ${myColors.skyScraper}
   display: flex;
   align-items: center;
   margin: 10px 0 40px;
@@ -14,8 +15,6 @@ const Heading = styled.h3`
   ${media.tablet`font-size: 24px;`};
 
   &:before {
-    counter-increment: section;
-    content: '0' counter(section) '.';
     margin-right: 10px;
     font-family: ${fonts.SFMono};
     font-weight: normal;
@@ -27,17 +26,17 @@ const Heading = styled.h3`
   }
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: 1px;
-    width: 300px;
-    background-color: ${colors.mediumGrey};
+    width: 100%;
+    background-color: ${myColors.orangeJulius};
     position: relative;
     top: -5px;
     margin-left: 20px;
     ${media.desktop`width: 200px`};
     ${media.tablet`width: 100%;`};
-    ${media.phone`margin-left: 10px;`};
+    ${media.thone`margin-left: 10px;`};
   }
 `;
 

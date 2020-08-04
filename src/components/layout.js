@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Head, Nav } from '@components';
-import { GlobalStyle, theme } from '@styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { Head, Nav } from "@components";
+import { GlobalStyle, theme } from "@styles";
 
 const Layout = ({ children }) => {
   return (

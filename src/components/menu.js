@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { navLinks } from '@config';
-import styled from 'styled-components';
-import { theme, mixins, media } from '@styles';
+import React from "react";
+import PropTypes from "prop-types";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import { navLinks } from "@config";
+import styled from "styled-components";
+import { theme, mixins, media } from "@styles";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const MenuContainer = styled.div`
@@ -16,8 +16,8 @@ const MenuContainer = styled.div`
   z-index: 10;
   outline: 0;
   transition: ${theme.transition};
-  transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
-  visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
+  transform: translateX(${(props) => (props.menuOpen ? 0 : 100)}vw);
+  visibility: ${(props) => (props.menuOpen ? "visible" : "hidden")};
   display: none;
   ${media.tablet`display: block;`};
 `;
@@ -33,7 +33,7 @@ const Sidebar = styled.div`
   margin-left: auto;
   font-family: ${fonts.SFMono};
   box-shadow: -10px 0px 30px -15px ${myColors.lightGray};
-  ${media.phone`padding: 25px;`};
+  ${media.thone`padding: 25px;`};
   ${media.phablet`width: 75vw;`};
   ${media.tiny`padding: 10px;`};
 `;
@@ -51,7 +51,7 @@ const NavListItem = styled.li`
   position: relative;
   font-size: ${fontSizes.large};
   counter-increment: item 1;
-  ${media.phone`
+  ${media.thone`
     margin: 0 auto 10px;
     font-size: ${fontSizes.medium};
   `};
@@ -64,11 +64,11 @@ const NavLink = styled(AnchorLink)`
 `;
 
 const Menu = ({ menuOpen, toggleMenu }) => {
-  const handleMenuClick = e => {
+  const handleMenuClick = (e) => {
     const target = e.target;
-    const isLink = target.hasAttribute('href');
+    const isLink = target.hasAttribute("href");
     const isNotMenu =
-      target.classList && target.classList[0].includes('MenuContainer');
+      target.classList && target.classList[0].includes("MenuContainer");
 
     if (isLink || isNotMenu) {
       toggleMenu(!menuOpen);

@@ -1,12 +1,17 @@
-import { css } from 'styled-components';
-import theme from './theme';
-import media from './media';
+import { css } from "styled-components";
+import theme from "./theme";
+import media from "./media";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const mixins = {
   flexCenter: css`
     display: flex;
     justify-content: center;
+    align-items: center;
+  `,
+  flexBetween: css`
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   `,
   sidePadding: css`
@@ -35,6 +40,12 @@ const mixins = {
       outline: 0;
     }
   `,
+  activeBorder: css`
+    border-left: 2px solid ${colors.green};
+  `,
+  borderNone: css`
+    border-left: none;
+  `,
   inlineLink: css`
     display: inline-block;
     text-decoration: none;
@@ -53,7 +64,7 @@ const mixins = {
       }
     }
     &:after {
-      content: '';
+      content: "";
       display: block;
       width: 0;
       height: 1px;
