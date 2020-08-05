@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Helmet from 'react-helmet';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { throttle } from '@utils';
-import styled from 'styled-components';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Menu } from '@components';
-import { mixins, theme, media } from '@styles';
-import { navLinks, navHeight } from '@config';
+import React, { useState, useEffect, useRef } from "react";
+import Helmet from "react-helmet";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { throttle } from "@utils";
+import styled from "styled-components";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import { Menu } from "@components";
+import { mixins, theme, media } from "@styles";
+import { navLinks, navHeight } from "@config";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const NavContainer = styled.header`
@@ -21,15 +21,15 @@ const NavContainer = styled.header`
   pointer-events: auto !important;
   user-select: auto !important;
   width: 100%;
-  height: ${props =>
-    props.scrollDirection === 'none' ? theme.navHeight : theme.navScrollHeight};
-  box-shadow: ${props =>
-    props.scrollDirection === 'up'
+  height: ${(props) =>
+    props.scrollDirection === "none" ? theme.navHeight : theme.navScrollHeight};
+  box-shadow: ${(props) =>
+    props.scrollDirection === "up"
       ? `0 10px 30px -10px ${colors.shadowNavy}`
-      : 'none'};
+      : "none"};
   transform: translateY(
-    ${props =>
-      props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px'}
+    ${(props) =>
+      props.scrollDirection === "down" ? `-${theme.navScrollHeight}` : "0px"}
   );
   ${media.desktop`padding: 0 40px;`};
   ${media.tablet`padding: 0 25px;`};
@@ -95,15 +95,15 @@ const HamburgerInner = styled.div`
   right: 0;
   transition-duration: 0.22s;
   transition-property: transform;
-  transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
-  transform: rotate(${props => (props.menuOpen ? `225deg` : `0deg`)});
+  transition-delay: ${(props) => (props.menuOpen ? `0.12s` : `0s`)};
+  transform: rotate(${(props) => (props.menuOpen ? `225deg` : `0deg`)});
   transition-timing-function: cubic-bezier(
-    ${props =>
+    ${(props) =>
       props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
   );
   &:before,
   &:after {
-    content: '';
+    content: "";
     display: block;
     background-color: ${myColors.orangeJulius};
     position: absolute;
@@ -117,17 +117,17 @@ const HamburgerInner = styled.div`
     border-radius: 4px;
   }
   &:before {
-    width: ${props => (props.menuOpen ? `100%` : `120%`)};
-    top: ${props => (props.menuOpen ? `0` : `-10px`)};
-    opacity: ${props => (props.menuOpen ? 0 : 1)};
-    transition: ${props =>
+    width: ${(props) => (props.menuOpen ? `100%` : `120%`)};
+    top: ${(props) => (props.menuOpen ? `0` : `-10px`)};
+    opacity: ${(props) => (props.menuOpen ? 0 : 1)};
+    transition: ${(props) =>
       props.menuOpen ? theme.hamBeforeActive : theme.hamBefore};
   }
   &:after {
-    width: ${props => (props.menuOpen ? `100%` : `80%`)};
-    bottom: ${props => (props.menuOpen ? `0` : `-10px`)};
-    transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
-    transition: ${props =>
+    width: ${(props) => (props.menuOpen ? `100%` : `80%`)};
+    bottom: ${(props) => (props.menuOpen ? `0` : `-10px`)};
+    transform: rotate(${(props) => (props.menuOpen ? `-90deg` : `0`)});
+    transition: ${(props) =>
       props.menuOpen ? theme.hamAfterActive : theme.hamAfter};
   }
 `;
@@ -166,7 +166,7 @@ function useEventListener(eventName, handler, element = window) {
   useEffect(() => {
     const isSupported = element && element.addEventListener;
     if (!isSupported) return;
-    const eventListener = event => savedHandler.current(event);
+    const eventListener = (event) => savedHandler.current(event);
 
     element.addEventListener(eventName, eventListener);
 
@@ -181,7 +181,7 @@ const DELTA = 5;
 const Nav = () => {
   const [isMounted, setMounted] = useState(false);
   const [menuOpen, toggleMenu] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState('none');
+  const [scrollDirection, setScrollDirection] = useState("none");
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   useEffect(() => {
@@ -197,14 +197,14 @@ const Nav = () => {
     }
 
     if (fromTop < DELTA) {
-      setScrollDirection('none');
+      setScrollDirection("none");
     } else if (fromTop > lastScrollTop && fromTop > navHeight) {
-      if (scrollDirection !== 'down') {
-        setScrollDirection('down');
+      if (scrollDirection !== "down") {
+        setScrollDirection("down");
       }
     } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
-      if (scrollDirection !== 'up') {
-        setScrollDirection('up');
+      if (scrollDirection !== "up") {
+        setScrollDirection("up");
       }
     }
     setLastScrollTop(fromTop);
@@ -216,24 +216,24 @@ const Nav = () => {
     }
   };
 
-  const handleKeydown = e => {
+  const handleKeydown = (e) => {
     if (!menuOpen) {
       return;
     }
 
-    if (e.which === 27 || e.key === 'Escape') {
+    if (e.which === 27 || e.key === "Escape") {
       toggleMenu(false);
     }
   };
 
-  useEventListener('scroll', handleScroll);
-  useEventListener('keydown', handleKeydown);
-  useEventListener('resize', handleResize);
+  useEventListener("scroll", handleScroll);
+  useEventListener("keydown", handleKeydown);
+  useEventListener("resize", handleResize);
 
   return (
     <NavContainer>
       <Helmet>
-        <body className={menuOpen ? 'blur' : ''} />
+        <body className={menuOpen ? "blur" : ""} />
       </Helmet>
       <Navbar>
         <TransitionGroup>
@@ -275,6 +275,21 @@ const Nav = () => {
                 ))}
             </TransitionGroup>
           </NavList>
+          <TransitionGroup>
+            {isMounted && (
+              <CSSTransition classNames='fadelink' timeout={2000}>
+                <div style={{ transitionDelay: `600ms` }}>
+                  <ResumeLink
+                    href='/resume.pdf'
+                    target='_blank'
+                    rel='nofollow noopener noreferrer'
+                  >
+                    Resume
+                  </ResumeLink>
+                </div>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
         </NavLinks>
       </Navbar>
       <Menu menuOpen={menuOpen} toggleMenu={toggleMenu} />

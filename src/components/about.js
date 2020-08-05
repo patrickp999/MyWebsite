@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Img from "gatsby-image";
 import { srConfig } from "@config";
 import sr from "@utils/sr";
 import { Section, Heading, mixins, media, theme } from "@styles";
@@ -45,10 +46,25 @@ const Skill = styled.li`
     line-height: 12px;
   }
 `;
+const PicContainer = styled.div`
+  position: relative;
+  width: 40%;
+  max-width: 300px;
+  margin-left: 60px;
+  ${media.tablet`margin: 60px auto 0;`};
+  ${media.phablet`width: 70%;`};
+`;
+const Avatar = styled(Img)`
+  position: relative;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%) contrast(1);
+  border-radius: ${theme.borderRadius};
+  transition: ${theme.transition};
+`;
 
 const About = ({ data }) => {
   const { frontmatter, html } = data[0].node;
-  const { title, avetar, skills } = frontmatter;
+  const { title, avatar, skills } = frontmatter;
   const revealContainer = useRef(null);
 
   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
@@ -63,6 +79,9 @@ const About = ({ data }) => {
             {skills && skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
           </SkillsContainer>
         </ContentContainer>
+        <PicContainer>
+          <Avatar fluid={avatar.childImageSharp.fluid} alt='Avatar' />
+        </PicContainer>
       </FlexContainer>
     </AboutContainer>
   );

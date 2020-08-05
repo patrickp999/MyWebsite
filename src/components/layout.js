@@ -8,14 +8,9 @@ const Layout = ({ children }) => {
     <div id='root'>
       <Head />
       <GlobalStyle />
-      {/* Skip to content here */}
-      {/* Isloading here */}
       <div className='container'>
         <Nav />
-        {/* <Social /> */}
-        {/* <Email /> */}
         {children}
-        {/* <Footer /> */}
       </div>
     </div>
   );
