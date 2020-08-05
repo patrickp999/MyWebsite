@@ -1,6 +1,6 @@
 ---
 date: "2014-03-01"
-title: "Software Developer"
+title: "Senior Software Developer"
 company: "Kiliuda Consulting LLC"
 location: "El Paso, TX"
 range: "July - Dec 2017"

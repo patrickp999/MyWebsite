@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-avetar: ""
+avatar: "./me.jpg"
 skills:
   - JavaScript (ES6+)
   - TypeScript
