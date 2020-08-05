@@ -36,12 +36,12 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: ${colors.green};
+      color: ${myColors.sage};
       outline: 0;
     }
   `,
   activeBorder: css`
-    border-left: 2px solid ${colors.green};
+    border-left: 2px solid ${myColors.sage};
   `,
   borderNone: css`
     border-left: none;
@@ -53,11 +53,11 @@ const mixins = {
     position: relative;
     transition: ${theme.transition};
     cursor: pointer;
-    color: ${colors.green};
+    color: ${myColors.sage};
     &:hover,
     &:focus,
     &:active {
-      color: ${colors.green};
+      color: ${myColors.sage};
       outline: 0;
       &:after {
         width: 100%;
@@ -77,9 +77,9 @@ const mixins = {
   `,
 
   smallButton: css`
-    color: ${myColors.skyScraper};
+    color: ${colors.slate};
     background-color: transparent;
-    border: 1px solid ${myColors.skyScraper};
+    border: 1px solid ${colors.slate};
     border-radius: ${theme.borderRadius};
     padding: 0.75rem 1rem;
     font-size: ${fontSizes.smallish};
@@ -102,9 +102,9 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: ${myColors.skyScraper};
+    color: ${colors.slate};
     background-color: transparent;
-    border: 1px solid ${myColors.skyScraper};
+    border: 1px solid ${colors.slate};
     border-radius: ${theme.borderRadius};
     padding: 1.25rem 1.75rem;
     font-size: ${fontSizes.small};

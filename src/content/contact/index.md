@@ -2,4 +2,4 @@
 title: "Say Hi..."
 ---
 
-My inbox is always open. Send me a message and say hello! Although I'm not currently looking for freelance opportunities, my inbox is always open. Whether for a potential project or just to say hi, I'll try my best to answer your email!
+Drop me a line and say hello! I am always eager to meet new people. Even if it's just to chat I will do my best to get back to you. Thank you for visiting.

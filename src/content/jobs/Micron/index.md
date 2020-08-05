@@ -7,6 +7,7 @@ range: "Oct 2011 - Nov 2012"
 url: "https://www.micron.com/"
 ---
 
-- I'm baby waistcoat gochujang chambray pickled tattooed tacos sriracha chartreuse iPhone health goth butcher. Biodiesel flexitarian sriracha, offal authentic post-ironic echo park.
-- I'm baby waistcoat gochujang chambray pickled tattooed tacos sriracha chartreuse iPhone health goth butcher. Biodiesel flexitarian sriracha, offal authentic post-ironic echo park.
-- I'm baby waistcoat gochujang chambray pickled tattooed tacos sriracha chartreuse iPhone health goth butcher. Biodiesel flexitarian sriracha, offal authentic post-ironic echo park.
+- Provided technical expertise and assisted customers with FLCOS micro display integration into their prototypes.
+- Worked on testing for Micron's POP iPhone 4 pico projector and mobile app.
+- Programmed custom scripts for automated display testing.
+- Authored technical notes for display scaling, display microchip memory access/programming, and thermal design considerations.

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { theme, media, Section, mixins } from "@styles";
 import sr from "@utils/sr";
 import { srConfig } from "@config";
-const { myColors } = theme;
+const { colors, myColors } = theme;
 
 const ContactContainer = styled(Section)`
   text-align: center;
@@ -64,7 +64,7 @@ const Input = styled.input`
   border-bottom: 2px solid ${myColors.rubyRed};
   outline: 0;
   font-size: 1.3rem;
-  color: white;
+  color: ${colors.lightestSlate};
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -103,7 +103,7 @@ const TextBox = styled.textarea`
   border-radius: ${theme.borderRadius};
   outline: 0;
   font-size: 1.3rem;
-  color: white;
+  color: ${colors.lightestSlate};
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;

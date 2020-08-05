@@ -48,13 +48,13 @@ const Logo = styled.div`
 `;
 const LogoLink = styled.a`
   display: block;
-  color: ${colors.green};
+  color: ${myColors.sage};
   width: 42px;
   height: 42px;
   &:hover,
   &:focus {
     svg {
-      fill: ${colors.transGreen};
+      fill: ${myColors.sage};
     }
   }
   svg {
@@ -133,6 +133,7 @@ const HamburgerInner = styled.div`
 `;
 const NavLinks = styled.div`
   display: flex;
+  color: ${colors.slate}
   align-items: center;
   ${media.tablet`display: none;`};
 `;
