@@ -157,7 +157,7 @@ const ResumeLink = styled.a`
   font-size: ${fontSizes.smallish};
 `;
 
-function useEventListener(eventName, handler, element = window) {
+function useEventListener(eventName, handler, element) {
   const savedHandler = useRef();
 
   useEffect(() => {
