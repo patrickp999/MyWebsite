@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import { srConfig } from "@config";
 import sr from "@utils/sr";
 import { Section, Heading, mixins, media, theme } from "@styles";
-const { colors, fontSizes, fonts } = theme;
+const { colors, myColors, fontSizes, fonts } = theme;
 
 const AboutContainer = styled(Section)`
   position: relative;
@@ -41,7 +41,7 @@ const Skill = styled.li`
     content: "▹";
     position: absolute;
     left: 0;
-    color: ${colors.green};
+    color: ${myColors.sage};
     font-size: ${fontSizes.small};
     line-height: 12px;
   }

@@ -5,12 +5,15 @@ skills:
   - JavaScript (ES6+)
   - TypeScript
   - HTML & CSS/SASS
-  - React/Redux
+  - React/Redux/Mobx
   - .NET
   - C#
   - Gatsby
   - SQL
-  - MongoDb
 ---
 
-I'm baby tattooed biodiesel [University of El Paso, TX](https://www.utep.edu/), pour-over blue bottle tilde slow-carb prism flexitarian la croix. Flannel offal yuccie food truck ugh. Taiyaki narwhal yr heirloom man braid. Plaid hammock readymade asymmetrical pinterest, activated charcoal fam 90's food truck single-origin coffee live-edge crucifix bicycle rights. IPhone wolf mumblecore direct trade.
+Hi there! My name is Patrick. I am a software engineer from the Sun City, El Paso, TX who has a passion for technology. I have always had an affinity for software ever since my first high school project programming a clock in Visual Basic, thoughout my college career graduating from [University of Texas, El Paso](https://www.utep.edu/), to today.
+
+In my professional career I create robust, secure web applications for Law Enforcment that help keep both us and them safe. I do my best to keep my skills sharp on the latest tools and technologies.
+
+These are some of the technologies that currently use:

@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
-import media from './media';
-import * as fontFamilies from './fonts';
+import { createGlobalStyle } from "styled-components";
+import theme from "./theme";
+import media from "./media";
+import * as fontFamilies from "./fonts";
 const { colors, fontSizes, fonts, myColors } = theme;
 
 const GlobalStyle = createGlobalStyle`
@@ -217,7 +217,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: ${colors.green};
+      color: ${myColors.sage};
       outline: 0;
     }
   }
