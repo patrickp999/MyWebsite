@@ -15,6 +15,16 @@ const HeroContainer = styled(Section)`
     width: 100%;
   }
 `;
+const Greeting = styled.h1`
+  color: ${myColors.slate};
+  text-align: center;
+  margin: 0 0 20px 3px;
+  font-size: ${fontSizes.medium};
+  font-family: ${fonts.SFMono};
+  font-weight: normal;
+  ${media.desktop`font-size: ${fontSizes.small};`};
+  ${media.tablet`font-size: ${fontSizes.smallish};`};
+`;
 const Name = styled.h2`
   font-size: 80px;
   line-height: 1.1;
@@ -53,6 +63,7 @@ const Subtitle = styled.h3`
 const Blurb = styled.div`
   margin: auto;
   margin-top: 25px;
+  text-align: center;
   width: 50%;
   max-width: 500px;
   a {
@@ -69,6 +80,11 @@ const Hero = ({ data }) => {
   }, []);
   const { frontmatter, html } = data[0].node;
 
+  const one = () => (
+    <Greeting style={{ transitionDelay: "100ms" }}>
+      {frontmatter.title}
+    </Greeting>
+  );
   const two = () => (
     <Name style={{ transitionDelay: "100ms" }}>{frontmatter.name}</Name>
   );

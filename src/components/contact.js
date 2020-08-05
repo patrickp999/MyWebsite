@@ -8,17 +8,26 @@ const { myColors } = theme;
 
 const ContactContainer = styled(Section)`
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 100px;
 `;
 const ContactBox = styled.div`
   display: grid;
   width: auto;
   background: ${myColors.darkGray}
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 15px;
   position: relative;
-  ${media.desktop`grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));`};
+  transition: ${theme.transition};
+  transition-duration: "1.5s";
+`;
+const FormContainer = styled.form`
+  transition: ${theme.transition};
+  transition-duration: "1.5s";
+  opacity: ${(props) => (props.isActive ? 1 : 0)};
+  z-index: ${(props) => (props.isActive ? 2 : -1)};
+  position: ${(props) => (props.isActive ? "relative" : "absolute")};
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
+  transition: ${theme.transition};
+  transition-duration: ${(props) => (props.isActive ? "0.5s" : "0s")};
 `;
 const Title = styled.h4`
   margin: 0 0 20px;
@@ -132,8 +141,8 @@ const TextBox = styled.textarea`
 `;
 const FormButton = styled.button`
   ${mixins.bigButton};
-  padding: 1.25rem 1.75rem;
-  margin: 0 auto
+  margin: 0.75rem auto
+  padding: 0.75rem 1rem;
   width: 27%;
   ${media.tablet`width: 40%;`};
 `;
@@ -156,56 +165,60 @@ const Contact = ({ data }) => {
       <Title>{title}</Title>
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <ContactBox>
-        {isFormOpen ? (
-          <form method='post' action=''>
-            <FormGroup>
-              <Input
-                type='input'
-                className='form__field'
-                placeholder='Name'
-                name='name'
-                id='name'
-                title=''
-                required
-              />
-              <Label htmlFor='name' className='form__label'>
-                Name
-              </Label>
-            </FormGroup>
-            <FormGroup>
-              <Input
-                type='input'
-                className='form__field'
-                placeholder='Email'
-                name='email'
-                id='email'
-                title=''
-                required
-              />
-              <Label htmlFor='email' className='form__label'>
-                Email
-              </Label>
-            </FormGroup>
-            <FormGroupBox>
-              <TextBox
-                type='input'
-                className='form__field'
-                placeholder='Message'
-                name='message'
-                id='message'
-                title=''
-                required
-              />
-              <Label htmlFor='message' className='form__label'>
-                Message
-              </Label>
-            </FormGroupBox>
-            <Button type='submit'>Submit</Button>
-            <Button type='reset'>Reset</Button>
-          </form>
-        ) : (
-          <FormButton onClick={() => setOpenForm(true)}>Say Hello</FormButton>
-        )}
+        <FormContainer
+          action='https://getform.io/f/331f7bc4-17bc-4133-94c2-f4cf819ea6b1'
+          method='POST'
+          isActive={isFormOpen}
+        >
+          <FormGroup>
+            <Input
+              type='input'
+              className='form__field'
+              placeholder='Name'
+              name='name'
+              id='name'
+              title=''
+              required
+            />
+            <Label htmlFor='name' className='form__label'>
+              Name
+            </Label>
+          </FormGroup>
+          <FormGroup>
+            <Input
+              type='input'
+              className='form__field'
+              placeholder='Email'
+              name='email'
+              id='email'
+              title=''
+              required
+            />
+            <Label htmlFor='email' className='form__label'>
+              Email
+            </Label>
+          </FormGroup>
+          <FormGroupBox>
+            <TextBox
+              type='input'
+              className='form__field'
+              placeholder='Message'
+              name='message'
+              id='message'
+              title=''
+              required
+            />
+            <Label htmlFor='message' className='form__label'>
+              Message
+            </Label>
+          </FormGroupBox>
+          <Button type='submit'>Submit</Button>
+          <Button type='reset'>Reset</Button>
+        </FormContainer>
+
+        <FormButton onClick={() => setOpenForm(true)} hidden={isFormOpen}>
+          Say Hello
+        </FormButton>
       </ContactBox>
     </ContactContainer>
   );

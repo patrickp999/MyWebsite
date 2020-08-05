@@ -1,6 +1,6 @@
 ---
-title: 'About Me'
-avetar: ''
+title: "About Me"
+avetar: ""
 skills:
   - JavaScript (ES6+)
   - TypeScript

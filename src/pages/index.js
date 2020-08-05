@@ -7,7 +7,6 @@ import { mixins, Main } from "@styles";
 
 const MainContainer = styled(Main)`
   ${mixins.sidePadding};
-  counter-reset: section;
 `;
 
 const IndexPage = ({ data }) => {
@@ -16,7 +15,7 @@ const IndexPage = ({ data }) => {
       <MainContainer id='content'>
         <Hero data={data.hero.edges} />
         <About data={data.about.edges} />
-        <Jobs />
+        <Jobs data={data.jobs.edges} />
         <Contact data={data.contact.edges} />
       </MainContainer>
     </Layout>
@@ -35,6 +34,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            title
             name
             subtitle
           }
@@ -62,6 +62,23 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+          }
+          html
+        }
+      }
+    }
+    jobs: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/jobs/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            company
+            location
+            range
+            url
           }
           html
         }
