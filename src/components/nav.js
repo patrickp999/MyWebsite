@@ -7,6 +7,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Menu } from "@components";
 import { mixins, theme, media } from "@styles";
 import { navLinks, navHeight } from "@config";
+import Resume from "../../static/Resume.pdf";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const NavContainer = styled.header`
@@ -281,7 +282,7 @@ const Nav = () => {
               <CSSTransition classNames='fadelink' timeout={2000}>
                 <div style={{ transitionDelay: `600ms` }}>
                   <ResumeLink
-                    href='/resume.pdf'
+                    href={Resume}
                     target='_blank'
                     rel='nofollow noopener noreferrer'
                   >

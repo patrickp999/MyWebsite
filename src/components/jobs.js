@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import sr from "@utils/sr";
-import { srConfig } from "@config";
+// import sr from "@utils/sr";
+// import { srConfig } from "@config";
 import styled from "styled-components";
 import { theme, mixins, media, Section, Heading } from "@styles";
 const { colors, myColors, fontSizes, fonts } = theme;
@@ -117,7 +117,7 @@ const TabContent = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 300px; // Causes problems
+  height: auto; // Causes problems
   opacity: ${(props) => (props.isActive ? 1 : 0)};
   z-index: ${(props) => (props.isActive ? 2 : -1)};
   position: ${(props) => (props.isActive ? "relative" : "absolute")};
@@ -168,10 +168,11 @@ const JobDetails = styled.h5`
 const Jobs = ({ data }) => {
   const [activeTabId, setActiveTabId] = useState(0);
   const revealContainer = useRef(null);
-  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+  // useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+
   return (
     <JobsContainer id='jobs' ref={revealContainer}>
-      <HeadingOpposite>Where I&apos;ve Worked</HeadingOpposite>
+      <Heading>Where I&apos;ve Worked</Heading>
       <TabsContainer>
         <Tabs role='tablist'>
           {data &&

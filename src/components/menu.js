@@ -4,6 +4,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { navLinks } from "@config";
 import styled from "styled-components";
 import { theme, mixins, media } from "@styles";
+import Resume from "../../static/Resume.pdf";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const MenuContainer = styled.div`
@@ -62,6 +63,11 @@ const NavLink = styled(AnchorLink)`
   padding: 3px 20px 20px;
   width: 100%;
 `;
+const ResumeLink = styled.a`
+  ${mixins.smallButton};
+  margin-left: 10px;
+  font-size: ${fontSizes.smallish};
+`;
 
 const Menu = ({ menuOpen, toggleMenu }) => {
   const handleMenuClick = (e) => {
@@ -91,6 +97,15 @@ const Menu = ({ menuOpen, toggleMenu }) => {
                   <NavLink href={url}>{name}</NavLink>
                 </NavListItem>
               ))}
+            <NavListItem>
+              <ResumeLink
+                href={Resume}
+                target='_blank'
+                rel='nofollow noopener noreferrer'
+              >
+                Resume
+              </ResumeLink>
+            </NavListItem>
           </NavList>
         </NavLinks>
       </Sidebar>

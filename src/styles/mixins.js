@@ -77,9 +77,9 @@ const mixins = {
   `,
 
   smallButton: css`
-    color: ${colors.slate};
+    color: ${myColors.sage};
     background-color: transparent;
-    border: 1px solid ${colors.slate};
+    border: 1px solid ${myColors.sage};
     border-radius: ${theme.borderRadius};
     padding: 0.75rem 1rem;
     font-size: ${fontSizes.smallish};
@@ -102,9 +102,9 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: ${colors.slate};
+    color: ${myColors.sage};
     background-color: transparent;
-    border: 1px solid ${colors.slate};
+    border: 1px solid ${myColors.sage};
     border-radius: ${theme.borderRadius};
     padding: 1.25rem 1.75rem;
     font-size: ${fontSizes.small};

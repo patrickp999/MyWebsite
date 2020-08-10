@@ -5,7 +5,6 @@ const { colors, myColors, fontSizes, fonts } = theme;
 
 const Heading = styled.h3`
   position: relative;
-  color: ${myColors.skyScraper}
   display: flex;
   align-items: center;
   margin: 10px 0 40px;
@@ -14,22 +13,11 @@ const Heading = styled.h3`
   font-size: ${fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
 
-  &:before {
-    margin-right: 10px;
-    font-family: ${fonts.SFMono};
-    font-weight: normal;
-    color: ${myColors.sage};
-    font-size: ${fontSizes.xlarge};
-    position: relative;
-    bottom: 4px;
-    ${media.tablet`font-size: ${fontSizes.large};`};
-  }
-
   &:after {
     content: "";
     display: block;
     height: 1px;
-    width: 100%;
+    width: 300px;
     background-color: ${myColors.orangeJulius};
     position: relative;
     top: -5px;

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-const config = require('./src/config');
+const config = require("./src/config");
 
 module.exports = {
   siteMetadata: {
@@ -19,14 +19,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: '_blank',
-              rel: 'nofollow noopener noreferrer',
+              target: "_blank",
+              rel: "nofollow noopener noreferrer",
             },
           },
           // TODO set this for any images in src/content
@@ -57,14 +63,14 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '@components': 'src/components',
-          '@config': 'src/config',
-          '@content': 'src/content',
-          '@fonts': 'src/fonts',
-          '@images': 'src/images',
-          '@pages': 'src/pages',
-          '@styles': 'src/styles',
-          '@utils': 'src/utils',
+          "@components": "src/components",
+          "@config": "src/config",
+          "@content": "src/content",
+          "@fonts": "src/fonts",
+          "@images": "src/images",
+          "@pages": "src/pages",
+          "@styles": "src/styles",
+          "@utils": "src/utils",
         },
         extensions: [],
       },

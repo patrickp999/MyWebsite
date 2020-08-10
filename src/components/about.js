@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Img from "gatsby-image";
-import { srConfig } from "@config";
-import sr from "@utils/sr";
+// import { srConfig } from "@config";
+// import sr from "@utils/sr";
 import { Section, Heading, mixins, media, theme } from "@styles";
 const { colors, myColors, fontSizes, fonts } = theme;
 
@@ -56,7 +56,7 @@ const PicContainer = styled.div`
 `;
 const Avatar = styled(Img)`
   position: relative;
-  mix-blend-mode: multiply;
+  // mix-blend-mode: multiply;
   filter: grayscale(100%) contrast(1);
   border-radius: ${theme.borderRadius};
   transition: ${theme.transition};
@@ -67,7 +67,7 @@ const About = ({ data }) => {
   const { title, avatar, skills } = frontmatter;
   const revealContainer = useRef(null);
 
-  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+  // useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   return (
     <AboutContainer id='about' ref={revealContainer}>

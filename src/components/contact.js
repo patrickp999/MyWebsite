@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { theme, media, Section, mixins } from "@styles";
-import sr from "@utils/sr";
-import { srConfig } from "@config";
+// import sr from "@utils/sr";
+// import { srConfig } from "@config";
 const { colors, myColors } = theme;
 
 const ContactContainer = styled(Section)`
@@ -20,6 +20,7 @@ const ContactBox = styled.div`
   transition-duration: "1.5s";
 `;
 const FormContainer = styled.form`
+  left: 10%;
   transition: ${theme.transition};
   transition-duration: "1.5s";
   opacity: ${(props) => (props.isActive ? 1 : 0)};
@@ -158,7 +159,7 @@ const Contact = ({ data }) => {
   const revealContainer = useRef(null);
   const [isFormOpen, setOpenForm] = useState(false);
 
-  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+  // useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   return (
     <ContactContainer id='contact' ref={revealContainer}>
@@ -212,13 +213,16 @@ const Contact = ({ data }) => {
               Message
             </Label>
           </FormGroupBox>
-          <Button type='submit'>Submit</Button>
-          <Button type='reset'>Reset</Button>
+          <div style={{ marginRight: "20%" }}>
+            <Button type='submit'>Submit</Button>
+            <Button type='reset'>Reset</Button>
+          </div>
         </FormContainer>
-
-        <FormButton onClick={() => setOpenForm(true)} hidden={isFormOpen}>
-          Say Hello
-        </FormButton>
+        <div>
+          <FormButton onClick={() => setOpenForm(true)} hidden={isFormOpen}>
+            Say Hello
+          </FormButton>
+        </div>
       </ContactBox>
     </ContactContainer>
   );
