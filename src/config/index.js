@@ -6,8 +6,8 @@ module.exports = {
     "Patrick Puga, Patrick, Puga, ppuga999, software engineer, front-end engineer, backend engineer, web developer, javascript, full stack engineer, enterprise",
   siteUrl: "https://patrickpuga.com",
   siteLanguage: "en_US",
-  // googleAnalyticsID: '', TODO Add later
-  // googleVerification: '',
+  googleAnalyticsID: "UA-174942381-1",
+  googleVerification: "u5ZPW9SOEXN-xg5CFpQyGG2FIvkOYkIv4TviQZRa1Wk",
   name: "Patrick Puga",
   location: "El Paso, TX",
   email: "ppuga999@gmail.com",
