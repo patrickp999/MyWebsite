@@ -8,11 +8,12 @@ skills:
   - React/Redux/Mobx
   - .NET
   - C#
+  - Java
   - Gatsby
   - SQL
 ---
 
-Hi there! My name is Patrick. I am a software engineer from the Sun City, El Paso, TX who has a passion for technology. I have always had an affinity for software ever since my first high school project programming a clock in Visual Basic, throughout my college career graduating from [University of Texas, El Paso](https://www.utep.edu/), to today.
+Hi there! My name is Patrick. I am a software engineer from the Sun City, El Paso, TX who has a passion for technology. I have always had an affinity for software ever since my first high school project programming a clock in Visual Basic, throughout my college career graduating with an MS and BS in electrical engineering from [University of Texas, El Paso](https://www.utep.edu/), to today.
 
 In my professional career I create robust, secure web applications for Law Enforcement that help keep both us and them safe. I do my best to keep my skills sharp on the latest tools and technologies.
 
