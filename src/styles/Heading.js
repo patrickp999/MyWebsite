@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import theme from "./theme";
-import media from "./media";
+import theme from "./Theme";
+import media from "./Media";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const Heading = styled.h3`
