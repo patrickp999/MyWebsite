@@ -3,7 +3,7 @@ module.exports = {
   siteDescription:
     "Patrick Puga is a Software Engineer based in El Paso, TX with experience developing enterprise applications throughout the full software lifecycle.",
   siteKeywords:
-    "Patrick Puga, Patrick, Puga, ppuga999, software engineer, front-end engineer, backend engineer, web developer, javascript, full stack engineer, enterprise",
+    "Patrick Puga, Patrick, Puga, ppuga999, software engineer, software developer, front-end engineer, backend engineer, web developer, javascript, full stack engineer, enterprise",
   siteUrl: "https://patrickpuga.com",
   siteLanguage: "en_US",
   googleAnalyticsID: "UA-174942381-1",

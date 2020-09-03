@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 /* eslint-disable prettier/prettier */
 const config = require("./src/config");
 
@@ -13,6 +15,13 @@ module.exports = {
       options: {
         trackingId: config.googleAnalyticsID,
         head: true,
+      },
+    },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "udmpnulsiuh3",
+        accessToken: "DjvySVJC2MzAak_QB8Vtn5cOgtXSuyX8b4LU3C1nqMI",
       },
     },
     `gatsby-plugin-react-helmet`,

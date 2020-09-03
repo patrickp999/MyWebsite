@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <MainContainer id='content'>
-        <Hero data={data.hero.edges} />
+        <Hero data={data.hero.nodes} />
         <About data={data.about.edges} />
         <Jobs data={data.jobs.edges} />
         <Contact data={data.contact.edges} />
@@ -30,16 +30,12 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   {
-    hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            name
-            subtitle
-          }
-          html
-        }
+    hero: allContentfulHero {
+      nodes {
+        greeting
+        blurb
+        name
+        subtitle
       }
     }
     about: allMarkdownRemark(
