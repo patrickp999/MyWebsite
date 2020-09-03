@@ -78,27 +78,18 @@ const Hero = ({ data }) => {
     const timeout = setTimeout(() => setIsMounted(true), 1000);
     return () => clearTimeout(timeout);
   }, []);
-  const { frontmatter, html } = data[0].node;
+  const { blurb, greeting, name, subtitle } = data[0];
 
   const one = () => (
-    <Greeting style={{ transitionDelay: "100ms" }}>
-      {frontmatter.title}
-    </Greeting>
+    <Greeting style={{ transitionDelay: "100ms" }}>{greeting}</Greeting>
   );
-  const two = () => (
-    <Name style={{ transitionDelay: "100ms" }}>{frontmatter.name}</Name>
-  );
+  const two = () => <Name style={{ transitionDelay: "100ms" }}>{name}</Name>;
   const three = () => <Horizontel style={{ transitionDelay: "150ms" }} />;
   const four = () => (
-    <Subtitle style={{ transitionDelay: "200ms" }}>
-      {frontmatter.subtitle}
-    </Subtitle>
+    <Subtitle style={{ transitionDelay: "200ms" }}>{subtitle}</Subtitle>
   );
   const five = () => (
-    <Blurb
-      style={{ transitionDelay: "300ms" }}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <Blurb style={{ transitionDelay: "300ms" }}>{blurb}</Blurb>
   );
 
   const items = [two, three, four, five];
