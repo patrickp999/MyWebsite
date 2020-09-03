@@ -80,9 +80,9 @@ const Hero = ({ data }) => {
   }, []);
   const { blurb, greeting, name, subtitle } = data[0];
 
-  const one = () => (
-    <Greeting style={{ transitionDelay: "100ms" }}>{greeting}</Greeting>
-  );
+  // const one = () => (
+  //   <Greeting style={{ transitionDelay: "100ms" }}>{greeting}</Greeting>
+  // );
   const two = () => <Name style={{ transitionDelay: "100ms" }}>{name}</Name>;
   const three = () => <Horizontel style={{ transitionDelay: "150ms" }} />;
   const four = () => (
