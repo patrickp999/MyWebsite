@@ -10,7 +10,7 @@ const options = {
 };
 
 if (process.env.NODE_ENV === "production") {
-  options.host = "cdn.contenful.com";
+  options.host = "cdn.contentful.com";
   options.accessToken = process.env.CONTENTFUL_CDA_TOKEN;
 }
 console.log("options: ", options);
