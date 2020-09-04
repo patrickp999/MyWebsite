@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
   options.host = process.env.CONTENTFUL_HOST;
   options.accessToken = process.env.CONTENTFUL_CDA_TOKEN;
 }
-console.log("options: ", options);
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
