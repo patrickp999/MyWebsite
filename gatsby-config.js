@@ -4,13 +4,13 @@ require("dotenv").config();
 const config = require("./src/config");
 
 const options = {
-  host: "preview.contentful.com",
+  host: process.env.CONTENTFUL_HOST,
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_CPA_TOKEN,
 };
 
 if (process.env.NODE_ENV === "production") {
-  options.host = "cdn.contenful.com";
+  options.host = process.env.CONTENTFUL_HOST;
   options.accessToken = process.env.CONTENTFUL_CDA_TOKEN;
 }
 console.log("options: ", options);
