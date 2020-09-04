@@ -68,8 +68,4 @@ module.exports = {
     viewFactor: 0.25,
     viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
   }),
-
-  CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
-  CONTENTFUL_CDA_TOKEN: process.env.CONTENTFUL_CDA_TOKEN,
-  CONTENTFUL_CPA_TOKEN: process.env.CONTENTFUL_CPA_TOKEN,
 };

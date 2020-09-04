@@ -5,15 +5,15 @@ const config = require("./src/config");
 
 const options = {
   host: "preview.contentful.com",
-  spaceId: config.CONTENTFUL_SPACE_ID,
-  accessToken: config.CONTENTFUL_CPA_TOKEN,
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_CPA_TOKEN,
 };
 
 if (process.env.NODE_ENV === "production") {
   options.host = "cdn.contenful.com";
-  options.accessToken = "b4gKvVozwc5W8xeMuFrD7wV1kDLSnLQ02e2AvljFEwc";
+  options.accessToken = process.env.CONTENTFUL_CDA_TOKEN;
 }
-
+console.log("options: ", options);
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
