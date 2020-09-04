@@ -11,7 +11,7 @@ const options = {
 
 if (process.env.NODE_ENV === "production") {
   options.host = "cdn.contenful.com";
-  options.accessToken = config.CONTENTFUL_CDA_TOKEN;
+  options.accessToken = "b4gKvVozwc5W8xeMuFrD7wV1kDLSnLQ02e2AvljFEwc";
 }
 
 module.exports = {
