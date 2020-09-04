@@ -3,6 +3,17 @@ require("dotenv").config();
 /* eslint-disable prettier/prettier */
 const config = require("./src/config");
 
+const options = {
+  host: "preview.contentful.com",
+  spaceId: config.CONTENTFUL_SPACE_ID,
+  accessToken: config.CONTENTFUL_CPA_TOKEN,
+};
+
+if (process.env.NODE_ENV === "production") {
+  options.host = "cdn.contenful.com";
+  options.accessToken = config.CONTENTFUL_CDA_TOKEN;
+}
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
@@ -19,10 +30,7 @@ module.exports = {
     },
     {
       resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: "udmpnulsiuh3",
-        accessToken: "DjvySVJC2MzAak_QB8Vtn5cOgtXSuyX8b4LU3C1nqMI",
-      },
+      options: options,
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
