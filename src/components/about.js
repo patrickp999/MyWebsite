@@ -82,7 +82,11 @@ const About = ({ data }) => {
           </SkillsContainer>
         </ContentContainer>
         <PicContainer>
-          <Avatar fluid={avatar.fluid} alt='Avatar' key={avatar.fluid.src} alt={avatar.title} />
+          <Avatar
+            fluid={avatar.fluid}
+            key={avatar.fluid.src}
+            alt={avatar.title}
+          />
         </PicContainer>
       </FlexContainer>
     </AboutContainer>
