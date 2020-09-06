@@ -5,6 +5,7 @@ import Img from "gatsby-image";
 // import { srConfig } from "@config";
 // import sr from "@utils/sr";
 import { Section, Heading, mixins, media, theme } from "@styles";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 const { colors, myColors, fontSizes, fonts } = theme;
 
 const AboutContainer = styled(Section)`
@@ -63,10 +64,10 @@ const Avatar = styled(Img)`
 `;
 
 const About = ({ data }) => {
-  const { frontmatter, html } = data[0].node;
-  const { title, avatar, skills } = frontmatter;
+  const { title, avatar, skills, description } = data[0];
+  const skillsArray = skills.split(",");
+  const richTextDescription = description.json;
   const revealContainer = useRef(null);
-
   // useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   return (
@@ -74,13 +75,14 @@ const About = ({ data }) => {
       <Heading>{title}</Heading>
       <FlexContainer>
         <ContentContainer>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          {documentToReactComponents(richTextDescription)}
           <SkillsContainer>
-            {skills && skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+            {skillsArray &&
+              skillsArray.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
           </SkillsContainer>
         </ContentContainer>
         <PicContainer>
-          <Avatar fluid={avatar.childImageSharp.fluid} alt='Avatar' />
+          <Avatar fluid={avatar.fluid} alt='Avatar' key={avatar.fluid.src} alt={avatar.title} />
         </PicContainer>
       </FlexContainer>
     </AboutContainer>

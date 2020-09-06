@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <MainContainer id='content'>
         <Hero data={data.hero.nodes} />
-        <About data={data.about.edges} />
+        <About data={data.about.nodes} image={data.avatar} />
         <Jobs data={data.jobs.edges} />
         <Contact data={data.contact.edges} />
       </MainContainer>
@@ -38,27 +38,17 @@ export const pageQuery = graphql`
         subtitle
       }
     }
-    about: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/about/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            avatar {
-              childImageSharp {
-                fluid(
-                  maxWidth: 700
-                  quality: 90
-                  traceSVG: { color: "#64ffda" }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
-            skills
-          }
-          html
+    about: allContentfulAbout {
+      nodes {
+        avatar {
+          fluid { ...GatsbyContentfulFluid }
+          title
+          description
+        }
+        title
+        skills
+        description: childContentfulAboutDescriptionRichTextNode {
+          json
         }
       }
     }
