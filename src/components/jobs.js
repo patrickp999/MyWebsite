@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 // import sr from "@utils/sr";
 // import { srConfig } from "@config";
 import styled from "styled-components";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { theme, mixins, media, Section, Heading } from "@styles";
 const { colors, myColors, fontSizes, fonts } = theme;
 
@@ -175,62 +176,66 @@ const Jobs = ({ data }) => {
       <Heading>Where I&apos;ve Worked</Heading>
       <TabsContainer>
         <Tabs role='tablist'>
-          {data &&
-            data.map(({ node }, i) => {
-              const { company } = node.frontmatter;
-              return (
-                <li key={i}>
-                  <Tab
-                    isActive={activeTabId === i}
-                    onClick={() => setActiveTabId(i)}
-                    role='tab'
-                    aria-selected={activeTabId === i ? "true" : "false"}
-                    aria-controls={`tab${i}`}
-                    id={`tab${i}`}
-                    tabIndex={activeTabId === i ? "0" : "-1"}
-                  >
-                    <span>{company}</span>
-                  </Tab>
-                </li>
-              );
-            })}
+          {data
+            ? data.map((job, i) => {
+                const { company } = job;
+                return (
+                  <li key={i}>
+                    <Tab
+                      isActive={activeTabId === i}
+                      onClick={() => setActiveTabId(i)}
+                      role='tab'
+                      aria-selected={activeTabId === i ? "true" : "false"}
+                      aria-controls={`tab${i}`}
+                      id={`tab${i}`}
+                      tabIndex={activeTabId === i ? "0" : "-1"}
+                    >
+                      <span>{company}</span>
+                    </Tab>
+                  </li>
+                );
+              })
+            : null}
           {/* <Highlighter activeTabId={activeTabId} /> */}
         </Tabs>
         <ContentContainer>
-          {data &&
-            data.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
-              return (
-                <TabContent
-                  key={i}
-                  isActive={activeTabId === i}
-                  id={`job${i}`}
-                  role='tabpanel'
-                  tabIndex='0'
-                  aria-labelledby={`job${i}`}
-                  aria-hidden={activeTabId !== i}
-                >
-                  <JobTitle>
-                    <span>{title}</span>
-                    <Company>
-                      <span>&nbsp;@&nbsp;</span>
-                      <a
-                        href={url}
-                        target='_blank'
-                        rel='nofollow noopener noreferrer'
-                      >
-                        {company}
-                      </a>
-                    </Company>
-                  </JobTitle>
-                  <JobDetails>
-                    <span>{range}</span>
-                  </JobDetails>
-                  <div dangerouslySetInnerHTML={{ __html: html }} />
-                </TabContent>
-              );
-            })}
+          {data
+            ? data.map((job, i) => {
+                const { title, company, url, dateRange, description } = job;
+                const companyUri = url.json.content[0].content[1].data.uri;
+                const workDescription = description.json;
+
+                return (
+                  <TabContent
+                    key={i}
+                    isActive={activeTabId === i}
+                    id={`job${i}`}
+                    role='tabpanel'
+                    tabIndex='0'
+                    aria-labelledby={`job${i}`}
+                    aria-hidden={activeTabId !== i}
+                  >
+                    <JobTitle>
+                      <span>{title}</span>
+                      <Company>
+                        <span>&nbsp;@&nbsp;</span>
+                        <a
+                          href={companyUri}
+                          target='_blank'
+                          rel='nofollow noopener noreferrer'
+                        >
+                          {company}
+                        </a>
+                      </Company>
+                    </JobTitle>
+                    <JobDetails>
+                      <span>{dateRange}</span>
+                    </JobDetails>
+                    {documentToReactComponents(workDescription)}
+                  </TabContent>
+                );
+              })
+            : null}
         </ContentContainer>
       </TabsContainer>
     </JobsContainer>
