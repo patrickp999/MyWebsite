@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
       <MainContainer id='content'>
         <Hero data={data.hero.nodes} />
         <About data={data.about.nodes} image={data.avatar} />
-        <Jobs data={data.jobs.edges} />
+        <Jobs data={data.jobs.nodes} />
         <Contact data={data.contact.edges} />
       </MainContainer>
     </Layout>
@@ -41,7 +41,9 @@ export const pageQuery = graphql`
     about: allContentfulAbout {
       nodes {
         avatar {
-          fluid { ...GatsbyContentfulFluid }
+          fluid {
+            ...GatsbyContentfulFluid
+          }
           title
           description
         }
@@ -64,20 +66,19 @@ export const pageQuery = graphql`
         }
       }
     }
-    jobs: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/jobs/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            company
-            location
-            range
-            url
-          }
-          html
+    jobs: allContentfulJob {
+      nodes {
+        company
+        date
+        dateRange
+        title
+        url {
+          json
+          url
+        }
+        location
+        description {
+          json
         }
       }
     }
