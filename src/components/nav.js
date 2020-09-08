@@ -231,7 +231,7 @@ const Nav = () => {
     }
   };
 
-  // useEventListener("scroll", handleScroll);
+  useEventListener("scroll", handleScroll);
   useEventListener("keydown", handleKeydown);
   useEventListener("resize", handleResize);
 
