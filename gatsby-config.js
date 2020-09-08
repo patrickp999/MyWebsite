@@ -5,7 +5,7 @@ const config = require("./src/config");
 
 const options = {
   host: process.env.CONTENTFUL_HOST,
-  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  spaceId: "udmpnulsiuh3",
   accessToken: process.env.CONTENTFUL_CPA_TOKEN,
 };
 
