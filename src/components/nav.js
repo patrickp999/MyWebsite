@@ -180,6 +180,10 @@ function useEventListener(eventName, handler, element) {
 const DELTA = 5;
 
 const Nav = () => {
+  const isSSR = typeof window === "undefined";
+  if (!isSSR) {
+    scrollTo(0, 0);
+  }
   const [isMounted, setMounted] = useState(false);
   const [menuOpen, toggleMenu] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("none");
