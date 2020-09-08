@@ -68,4 +68,6 @@ module.exports = {
     viewFactor: 0.25,
     viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
   }),
+
+  getformUri: "https://getform.io/f/331f7bc4-17bc-4133-94c2-f4cf819ea6b1",
 };

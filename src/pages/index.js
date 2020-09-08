@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
         <Hero data={data.hero.nodes} />
         <About data={data.about.nodes} image={data.avatar} />
         <Jobs data={data.jobs.nodes} />
-        <Contact data={data.contact.edges} />
+        <Contact data={data.contact.nodes} />
       </MainContainer>
     </Layout>
   );
@@ -54,18 +54,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    contact: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/contact/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-          }
-          html
-        }
-      }
-    }
     jobs: allContentfulJob {
       nodes {
         company
@@ -78,6 +66,14 @@ export const pageQuery = graphql`
         }
         location
         description {
+          json
+        }
+      }
+    }
+    contact: allContentfulContact {
+      nodes {
+        title
+        contactBlurb {
           json
         }
       }
