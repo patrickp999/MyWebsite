@@ -54,8 +54,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    jobs: allContentfulJob {
+    jobs: allContentfulJob(sort: { fields: [order], order: ASC }) {
       nodes {
+        order
         company
         date
         dateRange
