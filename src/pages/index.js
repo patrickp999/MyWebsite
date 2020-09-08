@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import { object } from "prop-types";
 import styled from "styled-components";
@@ -10,6 +10,10 @@ const MainContainer = styled(Main)`
 `;
 
 const IndexPage = ({ data }) => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [data])
+
   return (
     <Layout>
       <MainContainer id='content'>
