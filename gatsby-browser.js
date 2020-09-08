@@ -3,3 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+
+exports.onInitialClientRender = () => {
+  window.scrollTo(0, 0);
+};
