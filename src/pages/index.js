@@ -10,10 +10,6 @@ const MainContainer = styled(Main)`
 `;
 
 const IndexPage = ({ data }) => {
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, [data])
-
   return (
     <Layout>
       <MainContainer id='content'>
