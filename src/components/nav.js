@@ -182,7 +182,7 @@ const DELTA = 5;
 const Nav = () => {
   const isSSR = typeof window === "undefined";
   if (!isSSR) {
-    scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }
   const [isMounted, setMounted] = useState(false);
   const [menuOpen, toggleMenu] = useState(false);
@@ -231,7 +231,7 @@ const Nav = () => {
     }
   };
 
-  useEventListener("scroll", handleScroll);
+  // useEventListener("scroll", handleScroll);
   useEventListener("keydown", handleKeydown);
   useEventListener("resize", handleResize);
 
