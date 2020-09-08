@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { getformUri } from "@config";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { theme, media, Section, mixins } from "@styles";
 // import sr from "@utils/sr";
 // import { srConfig } from "@config";
@@ -154,8 +156,7 @@ const Button = styled.button`
 `;
 
 const Contact = ({ data }) => {
-  const { frontmatter, html } = data[0].node;
-  const { title } = frontmatter;
+  const { title, contactBlurb } = data[0];
   const revealContainer = useRef(null);
   const [isFormOpen, setOpenForm] = useState(false);
 
@@ -164,13 +165,9 @@ const Contact = ({ data }) => {
   return (
     <ContactContainer id='contact' ref={revealContainer}>
       <Title>{title}</Title>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      {documentToReactComponents(contactBlurb.json)}
       <ContactBox>
-        <FormContainer
-          action='https://getform.io/f/331f7bc4-17bc-4133-94c2-f4cf819ea6b1'
-          method='POST'
-          isActive={isFormOpen}
-        >
+        <FormContainer action={getformUri} method='POST' isActive={isFormOpen}>
           <FormGroup>
             <Input
               type='input'

@@ -36,13 +36,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/src/content/`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
@@ -89,7 +82,6 @@ module.exports = {
         alias: {
           "@components": "src/components",
           "@config": "src/config",
-          "@content": "src/content",
           "@fonts": "src/fonts",
           "@images": "src/images",
           "@pages": "src/pages",
