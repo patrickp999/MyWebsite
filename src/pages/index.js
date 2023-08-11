@@ -9,6 +9,7 @@ const MainContainer = styled(Main)`
   ${mixins.sidePadding};
 `;
 
+// Main layout
 const IndexPage = ({ data }) => {
   return (
     <Layout>
